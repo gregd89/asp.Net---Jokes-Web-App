@@ -1,6 +1,60 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Privacy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container py-5">
+    <div class="form-wrap mx-auto">
+        <div class="card p-4 p-md-5">
+            <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+                <div>
+                    <h1 class="mb-1" style="font-family:'Nunito', sans-serif; font-weight:800;">
+                        🔒 Privacy Policy
+                    </h1>
+                    <p class="text-muted mb-0">
+                        A simple overview of what this app does (and doesn’t) do with your data.
+                    </p>
+                </div>
+
+                <a class="btn btn-light" asp-controller="Home" asp-action="Index">← Home</a>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="policy-section">
+                <h5 class="policy-title">What data we store</h5>
+                <p class="text-muted mb-0">
+                    This app stores jokes you create (question + answer) in the application database so they can be displayed later.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h5 class="policy-title">Account & login</h5>
+                <p class="text-muted mb-0">
+                    If you use login, your account details are managed by ASP.NET Identity. We don’t sell or share your personal data.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h5 class="policy-title">Cookies</h5>
+                <p class="text-muted mb-0">
+                    Cookies may be used for authentication (keeping you signed in) and basic site functionality.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h5 class="policy-title">Third-party services</h5>
+                <p class="text-muted mb-0">
+                    This app doesn’t intentionally send your jokes to third-party services. If you host it online,
+                    your hosting provider may collect standard logs (like IP address and browser info).
+                </p>
+            </div>
+
+            <div class="policy-section mb-0">
+                <h5 class="policy-title">Contact</h5>
+                <p class="text-muted mb-0">
+                    If you have questions about privacy, contact the site admin.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
