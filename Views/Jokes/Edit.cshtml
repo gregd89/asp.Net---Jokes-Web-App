@@ -1,39 +1,66 @@
 ﻿@model JokesWebApp.Models.Joke
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Joke";
 }
 
-<h1>Edit</h1>
+<div class="container py-5">
+    <div class="form-wrap mx-auto">
+        <div class="card p-4 p-md-5">
+            <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+                <div>
+                    <h1 class="mb-1" style="font-family:'Nunito', sans-serif; font-weight:800;">
+                        ✏️ Edit Joke
+                    </h1>
+                    <p class="text-muted mb-0">Update the question or punchline, then save your changes.</p>
+                </div>
 
-<h4>Joke</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="JokeQuestion" class="control-label"></label>
-                <input asp-for="JokeQuestion" class="form-control" />
-                <span asp-validation-for="JokeQuestion" class="text-danger"></span>
+                <a class="btn btn-light" asp-action="Index">← Back to list</a>
             </div>
-            <div class="form-group">
-                <label asp-for="JokeAnswer" class="control-label"></label>
-                <input asp-for="JokeAnswer" class="form-control" />
-                <span asp-validation-for="JokeAnswer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+            <hr class="my-4" />
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="JokeQuestion" class="form-label fw-semibold">Joke Question</label>
+                    <input asp-for="JokeQuestion"
+                           class="form-control form-control-lg"
+                           placeholder="e.g. Why did the chicken cross the road?"
+                           autocomplete="off" />
+                    <span asp-validation-for="JokeQuestion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="JokeAnswer" class="form-label fw-semibold">Joke Answer</label>
+                    <textarea asp-for="JokeAnswer"
+                              class="form-control form-control-lg"
+                              rows="3"
+                              placeholder="e.g. To get to the other side 😄"></textarea>
+                    <span asp-validation-for="JokeAnswer" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2 mt-4 flex-wrap">
+                    <button type="submit" class="btn btn-primary btn-lg">💾 Save changes</button>
+                    <a class="btn btn-outline-secondary btn-lg" asp-action="Details" asp-route-id="@Model.Id">View details</a>
+                    <a class="btn btn-light btn-lg" asp-action="Index">Cancel</a>
+                </div>
+
+                <div class="tip-box mt-4">
+                    <div class="tip-title">✨ Tip</div>
+                    <div class="tip-text text-muted">
+                        Make the punchline short and snappy — it lands better.
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
