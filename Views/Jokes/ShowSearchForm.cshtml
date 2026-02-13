@@ -1,20 +1,46 @@
-﻿<h4>Search for a Joke</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="ShowSearchResults">
-            <div class="form-group">
-                <label for="SearchPhrase" class="control-label"></label>
-                <input name="SearchPhrase" class="form-control" />
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+<div class="container py-5">
+    <div class="search-wrap mx-auto">
+        <div class="card p-4 p-md-5">
+            <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+                <div>
+                    <h2 class="mb-1" style="font-family:'Nunito', sans-serif; font-weight:800;">
+                        🔎 Search for a Joke
+                    </h2>
+                    <p class="text-muted mb-0">
+                        Search by keyword in the question or answer.
+                    </p>
+                </div>
+
+                <a class="btn btn-light" asp-action="Index">
+                    ← Back to list
+                </a>
             </div>
 
-            <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary" />
-            </div>
-        </form>
+            <hr class="my-4" />
+
+            <form asp-action="ShowSearchResults" method="get" class="search-form">
+                <label for="SearchPhrase" class="form-label fw-semibold">Keyword</label>
+
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text">🧠</span>
+                    <input id="SearchPhrase"
+                           name="SearchPhrase"
+                           class="form-control"
+                           value="@Context.Request.Query["SearchPhrase"]"
+                           placeholder="e.g. programmer, chicken, knock knock..."
+                           autocomplete="off" />
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                    <a class="btn btn-success" asp-action="Create">✍️ Add a joke</a>
+                    <a class="btn btn-outline-secondary" asp-action="ShowSearchForm">Clear</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
