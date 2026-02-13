@@ -1,8 +1,62 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-5">
+    <div class="hero-bg">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">
+                    😄 Joke Web App
+                </span>
+
+                <h1 class="display-4 mt-3" style="font-family:'Nunito', sans-serif; font-weight:800;">
+                    Welcome to <span style="color: var(--primary);">JokeHub</span>
+                </h1>
+
+                <p class="lead text-muted mt-3">
+                    Create, save, and share jokes. Brighten your day with a quick laugh.
+                </p>
+
+                <div class="d-flex gap-3 mt-4 flex-wrap">
+                    <a class="btn btn-primary btn-lg" asp-controller="Jokes" asp-action="Index">
+                        📚 Browse Jokes
+                    </a>
+
+                    <a class="btn btn-success btn-lg" asp-controller="Jokes" asp-action="Create">
+                        ✍️ Add a Joke
+                    </a>
+                </div>
+
+                <p class="text-muted mt-4 mb-0">
+                    Tip: Add your best jokes and build your own little comedy vault.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card p-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title mb-0">✨ Joke of the Moment</h5>
+                        <span class="badge rounded-pill" style="background: rgba(108,99,255,0.12); color: var(--primary);">
+                            Demo
+                        </span>
+                    </div>
+
+                    <hr />
+
+                    <p class="card-text mb-2" style="font-weight:600;">
+                        Why don’t programmers like nature?
+                    </p>
+                    <p class="card-text text-muted">
+                        It has too many bugs. 🐛
+                    </p>
+
+                    <div class="d-flex gap-2 mt-3 flex-wrap">
+                        <a class="btn btn-primary" asp-controller="Jokes" asp-action="Index">See all jokes</a>
+                        <a class="btn btn-success" asp-controller="Jokes" asp-action="Create">Add yours</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

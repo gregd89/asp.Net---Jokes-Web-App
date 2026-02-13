@@ -1,31 +1,335 @@
-html {
-  font-size: 14px;
+/* -------------------------------
+   Fonts & Base
+--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@500;700&display=swap');
+
+:root {
+    --bg: #f7f8fc;
+    --card: #ffffff;
+    --primary: #6c63ff;
+    --secondary: #ff6584;
+    --accent: #00c2a8;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-@media (min-width: 768px) {
-  html {
+html {
     font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    background: #f6f7fb;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    margin: 0;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+
+/* -------------------------------
+   Navbar
+--------------------------------*/
+.navbar {
+    background: white !important;
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.navbar-brand {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--primary) !important;
+    font-size: 1.5rem;
 }
+
+.nav-link {
+    color: var(--text) !important;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+    .nav-link:hover {
+        color: var(--secondary) !important;
+    }
+
+/* -------------------------------
+   Buttons
+--------------------------------*/
+.btn {
+    border-radius: 14px;
+    padding: 10px 18px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #8b85ff);
+    box-shadow: 0 6px 16px rgba(108, 99, 255, 0.25);
+}
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(108, 99, 255, 0.35);
+    }
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--secondary), #ff8fa3);
+    box-shadow: 0 6px 16px rgba(255, 101, 132, 0.25);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--accent), #38e8cf);
+    box-shadow: 0 6px 16px rgba(0, 194, 168, 0.25);
+}
+
+/* -------------------------------
+   Cards (Jokes)
+--------------------------------*/
+.card {
+    border: none;
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    transition: all 0.25s ease;
+    padding: 1rem;
+}
+
+    .card:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+.card-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.card-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* -------------------------------
+   Tables (Index page jokes list)
+--------------------------------*/
+table {
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+    table thead th {
+        border: none !important;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    table tbody tr {
+        background: white;
+        box-shadow: var(--shadow);
+        border-radius: 14px;
+    }
+
+    table tbody td {
+        border: none !important;
+        padding: 18px !important;
+    }
+
+/* -------------------------------
+   Forms
+--------------------------------*/
+.form-control {
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    transition: 0.2s;
+}
+
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+    }
+
+/* -------------------------------
+   Alerts
+--------------------------------*/
+.alert {
+    border-radius: 16px;
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+/* -------------------------------
+   Footer
+--------------------------------*/
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* -------------------------------
+   Fun extras
+--------------------------------*/
+
+/* floating create button */
+.create-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: white;
+    border-radius: 50px;
+    padding: 16px 22px;
+    font-weight: 700;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+    .create-fab:hover {
+        transform: scale(1.08);
+    }
+
+.badge {
+    border-radius: 999px !important;
+}
+
+hr {
+    border-top: 1px solid var(--border);
+    opacity: 1;
+}
+
+/* HERO BACKGROUND */
+.hero-bg {
+    background: radial-gradient(circle at 20% 20%, rgba(108,99,255,0.18), transparent 40%), radial-gradient(circle at 80% 30%, rgba(0,194,168,0.18), transparent 40%), radial-gradient(circle at 50% 80%, rgba(255,101,132,0.15), transparent 45%);
+    border-radius: 28px;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* soft glow blobs */
+    .hero-bg::before,
+    .hero-bg::after {
+        content: "";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        background: var(--primary);
+        opacity: 0.08;
+        filter: blur(80px);
+        border-radius: 50%;
+    }
+
+    .hero-bg::before {
+        top: -120px;
+        left: -120px;
+    }
+
+    .hero-bg::after {
+        bottom: -140px;
+        right: -120px;
+    }
+
+/* Search page */
+.search-wrap {
+    max-width: 760px;
+}
+
+/* Make input group look modern */
+.input-group-lg .form-control,
+.input-group-lg .input-group-text,
+.input-group-lg .btn {
+    border-radius: 16px;
+}
+
+.input-group-lg .input-group-text {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.85);
+}
+
+/* Fix Bootstrap radius edges */
+.input-group-lg .input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group-lg .form-control {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+.input-group-lg .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Nice HR */
+hr {
+    border-top: 1px solid var(--border);
+    opacity: 1;
+}
+
+/* Jokes list */
+.jokes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 992px) {
+    .jokes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.joke-card {
+    padding: 0;
+}
+
+    .joke-card .card-body {
+        padding: 18px;
+    }
+
+.joke-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.joke-question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.joke-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.btn-sm {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* make "btn-light" look nicer */
+.btn-light {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid var(--border);
+}
+
+    .btn-light:hover {
+        transform: translateY(-1px);
+    }
